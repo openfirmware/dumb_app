@@ -1,3 +1,13 @@
+Before "@no-throttle" do
+  @app = Rack::Builder.new {
+    map "/api" do
+      run proc { |env|
+        [200, {}, ["OK"]]
+      }
+    end
+  }
+end
+
 When /^I send a GET request for "([^"]*)"$/ do |path|
     get path
 end
